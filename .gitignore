@@ -1,0 +1,28 @@
+# Node.js
+node_modules/
+
+# Логи
+*.log
+
+# Залежності
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS
+.DS_Store
+Thumbs.db
+
+# Статичні файли збірки
+/dist
+/build
+
+# Оточення
+.env
+config/dev-env.conf
+
+# Папка для збереження IDE файлів
+.idea/
+
+# Інші файли, що не повинні бути у репозиторії
+*.swp
