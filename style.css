@@ -6,7 +6,11 @@ body {
   display: grid;
   place-items: center;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+<<<<<<< HEAD
   background-color: rgb(194, 158, 232);
+=======
+ 
+>>>>>>> feature/initial-layout
   color: #e8eefc;
 }
 
