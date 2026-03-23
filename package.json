@@ -1,0 +1,45 @@
+{
+  "name": "lab1-git",
+  "version": "1.0.0",
+  "description": "This project is a simple calculator for basic mathematical operations (addition, subtraction, multiplication, division) built using HTML, CSS, and JavaScript.",
+  "main": "script.js",
+  "scripts": {
+    "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "test:unit": "vitest",
+  "test:unit:ui": "vitest --ui",
+  "test:unit:coverage": "vitest --coverage",
+  "test:e2e": "playwright test",
+  "test:e2e:ui": "playwright test --ui",
+  "test": "npm run test:unit && npm run test:e2e"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khrystyna-tkach/lab1-git.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Khrystyna-tkach/lab1-git/issues"
+  },
+  "homepage": "https://github.com/Khrystyna-tkach/lab1-git#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "@vitest/coverage-v8": "^4.1.1",
+    "@vitest/ui": "^4.1.1",
+    "@vue/test-utils": "^2.4.6",
+    "autoprefixer": "^10.4.27",
+    "jsdom": "^29.0.1",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
+    "vite": "^8.0.2",
+    "vitest": "^4.1.1"
+  },
+  "dependencies": {
+    "vue": "^3.5.30"
+  }
+}
