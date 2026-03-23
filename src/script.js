@@ -12,6 +12,11 @@ import {
   chooseOp,
   equals,
 } from "./calculator.js";
+const statusEl = document.getElementById("app-status");
+
+if (statusEl) {
+  statusEl.textContent = import.meta.env.VITE_APP_STATUS;
+}
 
 const display = document.getElementById("display");
 const keys = document.querySelector(".keys");
@@ -62,7 +67,7 @@ document.addEventListener("keydown", (e) => {
 display.addEventListener("input", () => {
   state = {
     ...state,
-    current: normalizeNumberString(display.value.replace(/[^\d.\-]/g, "")),
+    current: normalizeNumberString(display.value.replace(/[^\d.-]/g, "")),
   };
   render();
 });
