@@ -4,17 +4,16 @@
   "description": "This project is a simple calculator for basic mathematical operations (addition, subtraction, multiplication, division) built using HTML, CSS, and JavaScript.",
   "main": "script.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext .js,.vue --fix",
-    "format": "prettier --write \"src/**/*.{js,vue,json,css}\"",
-    "test:unit": "vitest",
-    "test:unit:ui": "vitest --ui",
-    "test:unit:coverage": "vitest --coverage",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "test": "npm run test:unit && npm run test:e2e"
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "lint": "eslint . --ext .js,.vue --fix",
+  "test:unit": "vitest",
+  "test:unit:ui": "vitest --ui",
+  "test:unit:coverage": "vitest --coverage",
+  "test:e2e": "playwright test",
+  "test:e2e:ui": "playwright test --ui",
+  "test": "npm run test:unit && npm run test:e2e"
   },
   "repository": {
     "type": "git",
