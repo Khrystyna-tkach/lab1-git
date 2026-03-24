@@ -13,7 +13,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -21,15 +20,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'  # Встановлюємо Node.js версію 18
+          node-version: '18'
 
       - name: Install dependencies
-        run: |
-          rm -rf node_modules package-lock.json  # Видаляємо попередні залежності
-          npm install  # Встановлюємо залежності
+        run: npm install
 
-      - name: Install Playwright browsers
-        run: npx playwright install  # Завантажуємо браузери для Playwright
+      - name: Start server
+        run: npm run dev &  # Запускає сервер у фоновому режимі
 
-      - name: Run e2e tests
-        run: npm run test:e2e  # Запуск енд-ту-енд тестів (Playwright)
+      - name: Wait for server to be ready
+        run: sleep 10  # Чекає 10 секунд, щоб сервер запустився
+
+      - name: Run Playwright tests
+        run: npm run test:e2e  # Запускає енд-ту-енд тести
