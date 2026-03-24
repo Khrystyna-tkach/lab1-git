@@ -25,7 +25,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install  # Встановлюємо всі залежності
-
       - name: Install Playwright browsers
         run: npx playwright install  # Завантажуємо браузери для Playwright
 
