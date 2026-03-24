@@ -13,6 +13,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -23,13 +24,10 @@ jobs:
           node-version: '18'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install  # Встановлюємо всі залежності
 
-      - name: Start server
-        run: npm run dev &  # Запускає сервер у фоновому режимі
+      - name: Install Playwright browsers
+        run: npx playwright install  # Завантажуємо браузери для Playwright
 
-      - name: Wait for server to be ready
-        run: sleep 10  # Чекає 10 секунд, щоб сервер запустився
-
-      - name: Run Playwright tests
-        run: npm run test:e2e  # Запускає енд-ту-енд тести
+      - name: Run e2e tests
+        run: npm run test:e2e  # Запуск енд-ту-енд тестів
