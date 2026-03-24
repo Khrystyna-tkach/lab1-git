@@ -1,4 +1,4 @@
-name: CI/CD
+name: CI/CD Workflow
 
 on:
   push:
@@ -21,13 +21,16 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '18'  # Встановлюємо Node.js версію 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm install  # Встановлюємо всі залежності
 
       - name: Install Playwright browsers
-        run: npx playwright install  # Завантажує браузери для Playwright
+        run: npx playwright install  # Завантажуємо необхідні браузери для Playwright
 
-      - name: Run Playwright tests
-        run: npx playwright test
+      - name: Run unit tests
+        run: npm run test:unit  # Запуск юніт-тестів (як у вашому package.json)
+
+      - name: Run e2e tests
+        run: npm run test:e2e  # Запуск енд-ту-енд тестів (як у вашому package.json)
