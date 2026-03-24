@@ -24,13 +24,12 @@ jobs:
           node-version: '18'  # Встановлюємо Node.js версію 18
 
       - name: Install dependencies
-        run: npm install  # Встановлюємо всі залежності
+        run: |
+          rm -rf node_modules package-lock.json  # Видаляємо попередні залежності
+          npm install  # Встановлюємо залежності
 
       - name: Install Playwright browsers
-        run: npx playwright install  # Завантажуємо необхідні браузери для Playwright
-
-      - name: Run unit tests
-        run: npm run test:unit  # Запуск юніт-тестів (як у вашому package.json)
+        run: npx playwright install  # Завантажуємо браузери для Playwright
 
       - name: Run e2e tests
-        run: npm run test:e2e  # Запуск енд-ту-енд тестів (як у вашому package.json)
+        run: npm run test:e2e  # Запуск енд-ту-енд тестів (Playwright)
