@@ -1,42 +1,40 @@
 name: CI/CD Pipeline
 
-
 on:
- push:
-   branches:
-     - main
-     - develop
- pull_request:
-
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
 
 jobs:
- build-and-test:
-   runs-on: ubuntu-latest
+  build-and-test:
+    runs-on: ubuntu-latest
 
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-   steps:
-     - name: Checkout repository
-       uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
 
+      - name: Install dependencies
+        run: npm ci
 
-     - name: Setup Node.js
-       uses: actions/setup-node@v4
-       with:
-         node-version: 20
-         cache: npm
+      - name: Run ESLint
+        run: npm run lint
 
+      - name: Install Playwright browsers
+        run: npx playwright install  # Завантажує браузери для Playwright
 
-     - name: Install dependencies
-       run: npm ci
+      - name: Run e2e tests
+        run: npm run test:e2e  # Запуск енд-ту-енд тестів
 
-
-     - name: Run ESLint
-       run: npm run lint
-
-
-     - name: Run e2e tests
-       run: npm run test:e2e
-
-
-     - name: Build project
-       run: npm run build
+      - name: Build project
+        run: npm run build
