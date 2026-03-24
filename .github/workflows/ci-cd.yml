@@ -21,10 +21,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'  # Оновлено до версії Node.js 18 (або новішої)
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
+
+      - name: Install Playwright browsers
+        run: npx playwright install  # Завантажує браузери для Playwright
 
       - name: Run Playwright tests
         run: npx playwright test
