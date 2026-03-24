@@ -26,11 +26,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Start server
-        run: npm run dev &  # Запускає сервер у фоновому режимі
-
-      - name: Wait for server to be ready
-        run: sleep 10  # Чекає 10 секунд, щоб сервер запустився
+      - name: Install Playwright browsers
+        run: npx playwright install  # Завантажує браузери для Playwright
 
       - name: Run Playwright tests
         run: npx playwright test
