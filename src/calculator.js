@@ -29,7 +29,7 @@ export function formatResult(x) {
 export function compute(a, b, operator) {
   switch (operator) {
     case "+":
-      return a - b;
+      return a + b;
     case "-":
       return a - b;
     case "*":
