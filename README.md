@@ -1,3 +1,5 @@
+[![CI/CD Pipeline](https://github.com/Khrystyna-tkach/lab1-git/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/Khrystyna-tkach/lab1-git/actions/workflows/ci-cd.yml)
+Переглянути роботу застосунку можна за посиланням: https://vercel.com/tkachristina079-3311s-projects/lab1-git/3jPN17DLWw2tTSnFg9KYzWiKR61f
 # JS Calculator
 
 This project is a simple calculator for basic mathematical operations (addition, subtraction, multiplication, division) built using HTML, CSS, and JavaScript.
