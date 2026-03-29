@@ -11,7 +11,7 @@ This calculator implements the following functions:
 - Clear (C) button
 - Backspace (⌫) button
 - Toggle sign (±)
-- Percentage (%)
+- Percentage (%).
 
 ## Technologies
 - HTML — Structure of the calculator
