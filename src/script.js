@@ -1,3 +1,4 @@
+
 "use strict";
 
 import {
@@ -12,6 +13,76 @@ import {
   chooseOp,
   equals,
 } from "./calculator.js";
+
+
+import * as Sentry from "@sentry/vue";
+
+Sentry.init({
+  dsn: "https://9ddbf6cc51bfc72a08e88b9cbb6ee69e@o4511252662583296.ingest.de.sentry.io/4511252675035216",
+  integrations: [
+    Sentry.browserTracingIntegration(),
+    Sentry.replayIntegration(),
+  ],
+  tracesSampleRate: 1.0,
+  environment: "development",
+});
+
+
+Sentry.setUser({
+  id: "12345",
+  email: "student@example.com",
+  segment: "premium_user",
+});
+
+
+const breakWorldBtn = document.getElementById("break-world-btn");
+
+if (breakWorldBtn) {
+  breakWorldBtn.addEventListener("click", () => {
+    const error = new Error("Sentry Test Error: Something went wrong!");
+
+    Sentry.addBreadcrumb({
+      message: "Break the world button clicked",
+      category: "user",
+      level: "info",
+    });
+
+    Sentry.captureException(error);
+    console.error("[Sentry Test Error]", error);
+  });
+}
+
+
+
+import posthog from 'posthog-js'
+
+posthog.init('phc_CRMXFeGk27viD8LZnPZgAZMgaMJwZtvVsPDocN8oEqFw', {
+    api_host: 'https://eu.i.posthog.com',
+    defaults: '2026-01-30'
+})
+
+posthog.capture("calculator_opened", {
+  page: "calculator",
+});
+posthog.capture('calculation_started', {
+  reason: 'first_input',
+});
+posthog.capture('calculation_cleared', {
+  reason: 'reset_all',
+});
+
+posthog.onFeatureFlags(() => {
+  const percentBtn = document.getElementById("percent-btn");
+
+  if (!percentBtn) return;
+
+  if (posthog.isFeatureEnabled("show-urgent-filter")) {
+    percentBtn.style.display = "block";
+  } else {
+    percentBtn.style.display = "none";
+  }
+});
+
 const statusEl = document.getElementById("app-status");
 
 if (statusEl) {
@@ -36,6 +107,7 @@ keys.addEventListener("click", (e) => {
   const action = btn.dataset.action;
 
   if (digit) state = inputDigit(state, digit);
+  
   else if (operator) state = chooseOp(state, operator);
   else if (action === "dot") state = inputDot(state);
   else if (action === "equals") state = equals(state);
